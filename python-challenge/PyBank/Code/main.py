@@ -8,7 +8,7 @@ import csv
 file = input("What file would you like to analyze?\n\tPotential Options:\n\tbudget_data_1.csv\n\tbudget_data_2.csv\n------------------------\n")
 
 csvpath = os.path.join('..','raw_data', file)
-print("\nFinancial Analysis\n------------------------\n")
+
 #read csv file
 with open(csvpath, newline="") as csvfile:
 
@@ -49,25 +49,18 @@ with open(csvpath, newline="") as csvfile:
     g_inc_date = dates[revenue_change.index(greatest_inc)+1]        #Finds date associated with greatest increase
     g_dec_date = dates[revenue_change.index(greatest_dec)+1]        #Finds date associated with greatest decrease
 
-    #Present Data
-    print("Total Months:\t" + str(total_months) + "\nTotal Revenue:\t$" + str(total_revenue) +"\nAverage Revenue Change: $" + str(avg_rev_change) + "\nGreatest Increase in Revenue: " + g_inc_date + " ($" + str(greatest_inc) + ")\nGreatest Decrease in Revenue: " + g_dec_date + " ($" + str(greatest_dec) + ")\n") 
+# Set output path for output text file
+output_path = os.path.join("..", "output", "results.txt")
 
+# Open the file using "write" mode. Specify the variable to hold the contents
+file = open(output_path, "w")
 
+#write results into text file
+file.write("Financial Analysis\n------------------------\n")
+file.write("Total Months:\t" + str(total_months) + "\nTotal Revenue:\t$" + str(total_revenue) +"\nAverage Revenue Change: $" + str(avg_rev_change) + "\nGreatest Increase in Revenue: " + g_inc_date + " ($" + str(greatest_inc) + ")\nGreatest Decrease in Revenue: " + g_dec_date + " ($" + str(greatest_dec) + ")\n") 
 
-#
-
-
-
-
-
-
-
-
-
-
-
-
-
+#close file
+file.close()
 
 
 

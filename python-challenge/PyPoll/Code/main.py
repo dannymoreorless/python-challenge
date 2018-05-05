@@ -6,7 +6,7 @@ import os
 import csv
 
 #Establish path to csv file of interest
-file = input("What file would you like to analyze?\tPotential Options:\n\telection_data_1.csv\n\telection_data_2.csv\n------------------------\n")
+file = input("What file would you like to analyze?\n\tPotential Options:\n\telection_data_1.csv\n\telection_data_2.csv\n------------------------\n")
 csvpath = os.path.join('..','raw_data', file)
 
 #read csv file
@@ -47,11 +47,20 @@ with open(csvpath, newline="") as csvfile:
     #Determine winner of election by finding the candidate with the greatest percentage of votes
     winner = candidates[candidate_percentages.index(max(candidate_percentages))]
 
-    #Present Data
-    print("\nElection Results\n------------------------\nTotal Votes: "+str(votercount)+"\n------------------------\n")
-    for name, percent, votes in zip(candidates,candidate_percentages,candidate_tallies):
-        print(name + ": " + str(percent) + "%\t" + "("+ str(votes) + ")\n")
-    print("------------------------\nWinner: "+ winner + "\n")
+# Set output path for output text file
+output_path = os.path.join("..", "output", "results.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+file = open(output_path, "w")
+
+#write results into text file
+file.write("Election Results\n------------------------\nTotal Votes: "+str(votercount)+"\n------------------------\n")
+for name, percent, votes in zip(candidates,candidate_percentages,candidate_tallies):
+    file.write(name + ": " + str(percent) + "%\t" + "("+ str(votes) + ")\n")
+file.write("------------------------\nWinner: "+ winner + "\n")
+
+#close file
+file.close()
 
 
 
