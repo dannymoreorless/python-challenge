@@ -41,3 +41,6 @@ for file in os.listdir(directory):
     file.write("Financial Analysis from " + filename + "\n------------------------\n")
     file.write("Total Months:\t" + str(total_months) + "\nTotal Revenue:\t$" + str(total_revenue) +"\nAverage Revenue Change: $" + str(avg_rev_change) + "\nGreatest Increase in Revenue: " + g_inc_date + " ($" + str(greatest_inc) + ")\nGreatest Decrease in Revenue: " + g_dec_date + " ($" + str(greatest_dec) + ")\n") 
     file.close()
+    print("\n----------------------------\nFinancial Analysis from " + filename + "\n------------------------\n")
+    print("Total Months:\t" + str(total_months) + "\nTotal Revenue:\t$" + str(total_revenue) +"\nAverage Revenue Change: $" + str(avg_rev_change) + "\nGreatest Increase in Revenue: " + g_inc_date + " ($" + str(greatest_inc) + ")\nGreatest Decrease in Revenue: " + g_dec_date + " ($" + str(greatest_dec) + ")\n\n----------------------------\n") 
+

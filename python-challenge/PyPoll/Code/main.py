@@ -42,9 +42,10 @@ for file in os.listdir(directory):
     file.write("------------------------\nWinner: "+ winner + "\n")
     file.close()
 
-
-
-
+    print("\n-----------------------------\nElection Results from " + filename + "\n------------------------\nTotal Votes: "+str(votercount)+"\n------------------------\n")
+    for name, percent, votes in zip(candidates,candidate_percentages,candidate_tallies):
+        print(name + ": " + str(percent) + "%\t" + "("+ str(votes) + ")\n")
+    print("------------------------\nWinner: "+ winner + "\n-----------------------------\n")
 
 
 
